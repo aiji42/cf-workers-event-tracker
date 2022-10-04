@@ -1,0 +1,8 @@
+name = "cf-workers-event-tracker"
+main = "src/index.ts"
+compatibility_date = "2022-10-04"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "event_tracker"
+database_id = ""

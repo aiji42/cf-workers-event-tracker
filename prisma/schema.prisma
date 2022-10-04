@@ -7,7 +7,7 @@
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = "file:../.wrangler/state/d1/DB.sqlite3"
 }
 
 model Visit {

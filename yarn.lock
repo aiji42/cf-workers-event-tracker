@@ -192,6 +192,11 @@
     undici "5.9.1"
     ws "^8.2.2"
 
+"@prisma/engines@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.4.0.tgz#6ca7d3ce8eee08dcfa82311b0a02f5ccaac7dc0c"
+  integrity sha512-Fpykccxlt9MHrAs/QpPGpI2nOiRxuLA+LiApgA59ibbf24YICZIMWd3SI2YD+q0IAIso0jCGiHhirAIbxK3RyQ==
+
 "@types/better-sqlite3@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@types/better-sqlite3/-/better-sqlite3-7.6.0.tgz#603d1c7a72527dd946e2bf641ed4c0b74a547423"
@@ -645,6 +650,13 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+
+prisma@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.4.0.tgz#0c53324bf6a29474636b3e1964e0d72e0277bf8f"
+  integrity sha512-l/QKLmLcKJQFuc+X02LyICo0NWTUVaNNZ00jKJBqwDyhwMAhboD1FWwYV50rkH4Wls0RviAJSFzkC2ZrfawpfA==
+  dependencies:
+    "@prisma/engines" "4.4.0"
 
 readdirp@~3.6.0:
   version "3.6.0"

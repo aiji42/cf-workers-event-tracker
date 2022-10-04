@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+//
+//generator client {
+//  provider = "prisma-client-js"
+//}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Visit {
+  token           String   @unique
+  visitorToken    String
+  ip              String
+  userAgent       String
+  referrer        String
+  referringDomain String
+  landingPage     String
+  browser         String
+  os              String
+  deviceType      String
+  country         String
+  region          String
+  city            String
+  latitude        Float
+  longitude       Float
+  utm_source      String
+  utm_medium      String
+  utm_term        String
+  utm_content     String
+  utm_campaign    String
+  app_version     String
+  os_version      String
+  platform        String
+  startedAt       DateTime
+  Event           Event?
+}
+
+model Event {
+  visitToken String   @unique
+  vist       Visit    @relation(fields: [visitToken], references: [token])
+  p1Key      String
+  p1Value    String
+  p2Key      String
+  p2Value    String
+  p3Key      String
+  p3Value    String
+  p4Key      String
+  p4Value    String
+  p5Key      String
+  p5Value    String
+  time       DateTime
+}

@@ -7,6 +7,7 @@
   "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
   "license": "MIT",
   "devDependencies": {
+    "prisma": "^4.4.0",
     "wrangler": "^2.1.10"
   }
 }

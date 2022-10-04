@@ -1,0 +1,9 @@
+{
+  "name": "cf-workers-event-tracker",
+  "version": "1.0.0",
+  "description": "Build an event tracker (alternative to Google Analytics) middleware using Cloudflare workers and D1.",
+  "main": "index.js",
+  "repository": "git@github.com:aiji42/cf-workers-event-tracker.git",
+  "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
+  "license": "MIT"
+}

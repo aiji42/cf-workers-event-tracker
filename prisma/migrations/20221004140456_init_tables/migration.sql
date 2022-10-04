@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Visit" (
-    "token" TEXT NOT NULL,
+    "visitToken" TEXT NOT NULL,
     "visitorToken" TEXT NOT NULL,
     "ip" TEXT NOT NULL,
     "userAgent" TEXT NOT NULL,
@@ -28,23 +28,14 @@ CREATE TABLE "Visit" (
 
 -- CreateTable
 CREATE TABLE "Event" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "visitToken" TEXT NOT NULL,
-    "p1Key" TEXT NOT NULL,
-    "p1Value" TEXT NOT NULL,
-    "p2Key" TEXT NOT NULL,
-    "p2Value" TEXT NOT NULL,
-    "p3Key" TEXT NOT NULL,
-    "p3Value" TEXT NOT NULL,
-    "p4Key" TEXT NOT NULL,
-    "p4Value" TEXT NOT NULL,
-    "p5Key" TEXT NOT NULL,
-    "p5Value" TEXT NOT NULL,
+    "visitorToken" TEXT NOT NULL,
+    "key" TEXT NOT NULL,
+    "value" TEXT NOT NULL,
     "time" DATETIME NOT NULL,
-    CONSTRAINT "Event_visitToken_fkey" FOREIGN KEY ("visitToken") REFERENCES "Visit" ("token") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Event_visitToken_fkey" FOREIGN KEY ("visitToken") REFERENCES "Visit" ("visitToken") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Visit_token_key" ON "Visit"("token");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Event_visitToken_key" ON "Event"("visitToken");
+CREATE UNIQUE INDEX "Visit_visitToken_key" ON "Visit"("visitToken");

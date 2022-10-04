@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:aiji42/cf-workers-event-tracker.git",
   "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^2.1.10"
+  }
 }

@@ -1,0 +1,12 @@
+diff --git a/node_modules/npx-import/lib/utils.js b/node_modules/npx-import/lib/utils.js
+index 4a6734f..d5442a8 100644
+--- a/node_modules/npx-import/lib/utils.js
++++ b/node_modules/npx-import/lib/utils.js
+@@ -8,6 +8,7 @@ export async function _importRelative(installDir, packageWithPath) {
+     return await import(pathToFileURL(_resolveRelative(installDir, packageWithPath)).href);
+ }
+ export function _resolve(packageWithPath) {
++    const require = createRequire(import.meta.url);
+     return require.resolve(packageWithPath);
+ }
+ export function _resolveRelative(installDir, packageWithPath) {

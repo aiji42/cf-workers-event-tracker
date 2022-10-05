@@ -11,7 +11,7 @@ app.get("/", async (c) => {
 	const response = await c.env.DB.prepare(
 		`SELECT visitToken FROM Visit`
 	).all();
-	c.json(response)
+	return c.json(response)
 });
 
 export default app

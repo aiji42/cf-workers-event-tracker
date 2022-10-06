@@ -26,7 +26,7 @@
     "workers-qb": "^0.1.2"
   },
   "scripts": {
-    "dev": "wrangler dev --local --persist",
+    "dev": "wrangler dev --local --persist --port 8080",
     "postinstall": "patch-package",
     "db:reset": "prisma migrate reset"
   },

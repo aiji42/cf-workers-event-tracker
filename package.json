@@ -9,8 +9,10 @@
   "devDependencies": {
     "@cloudflare/d1": "^1.4.1",
     "@cloudflare/workers-types": "^3.16.0",
+    "@types/cookie": "^0.5.1",
     "@types/ua-parser-js": "^0.7.36",
     "@types/uuid": "^8.3.4",
+    "cookie": "^0.5.0",
     "patch-package": "^6.4.7",
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
@@ -27,5 +29,8 @@
     "dev": "wrangler dev --local --persist",
     "postinstall": "patch-package",
     "db:reset": "prisma migrate reset"
+  },
+  "prettier": {
+    "printWidth": 100
   }
 }

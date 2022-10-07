@@ -26,13 +26,23 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.all("/proxy", (c) => c.json({ m: "proxy" }));
 
-app.get("*", async (c) => {
+app.all("*", async (c) => {
   const url = new URL(c.req.url);
   url.pathname = "/proxy";
-  const res = await fetch(new Request(url.toString(), c.req.clone()));
+  const res = await fetch(new Request(url.toString(), c.req));
 
   const visitToken = c.req.cookie(VISIT_TOKEN_NAME) ?? uuidv4();
   const visitorToken = c.req.cookie(VISITOR_TOKEN_NAME) ?? uuidv4();
+
+  const newResponse = new Response(res.body, { headers: new Headers(res.headers) });
+  newResponse.headers.append("Set-Cookie", serialize(VISIT_TOKEN_NAME, visitToken, cookieOption));
+  newResponse.headers.append(
+    "Set-Cookie",
+    serialize(VISITOR_TOKEN_NAME, visitorToken, {
+      ...cookieOption,
+      maxAge: VISITOR_COOKIE_MAX_AGE,
+    })
+  );
 
   c.executionCtx.waitUntil(
     (async () => {
@@ -44,17 +54,7 @@ app.get("*", async (c) => {
     })()
   );
 
-  const newHead = new Headers(res.headers);
-  newHead.append("Set-Cookie", serialize(VISIT_TOKEN_NAME, visitToken, cookieOption));
-  newHead.append(
-    "Set-Cookie",
-    serialize(VISITOR_TOKEN_NAME, visitorToken, {
-      ...cookieOption,
-      maxAge: VISITOR_COOKIE_MAX_AGE,
-    })
-  );
-
-  return new Response(res.body, { headers: newHead });
+  return newResponse;
 });
 
 const getMetadata = (c: Context) => {
